@@ -20,5 +20,10 @@ print("Percentage of missing values per column:\n", missing_percentage)
 rows_with_missing = df[df.isnull().any(axis=1)]
 print("Sample rows with missing values:\n", rows_with_missing.head())
 
-  
+# Check for missing values in each column
+missing_values = df.isnull().sum()
+
+# Display the missing values
+print(missing_values)
+
   
