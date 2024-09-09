@@ -1,0 +1,24 @@
+pip install pandas
+
+import pandas as pd
+
+# IMDb dataset URL (title.basics.tsv.gz)
+url = 'https://datasets.imdbws.com/title.basics.tsv.gz'
+
+# Load the dataset directly from the URL using pandas
+df = pd.read_csv(url, sep='\t', compression='gzip', low_memory=False)
+
+# Check for missing values in each column
+missing_values = df.isnull().sum()
+print("Missing values per column:\n", missing_values)
+
+# Check percentage of missing values
+missing_percentage = (df.isnull().sum() / len(df)) * 100
+print("Percentage of missing values per column:\n", missing_percentage)
+
+# Display rows with missing values
+rows_with_missing = df[df.isnull().any(axis=1)]
+print("Sample rows with missing values:\n", rows_with_missing.head())
+
+  
+  
